@@ -1,4 +1,4 @@
-"""maya_review — build reviewer reports from interview transcripts and AI-generated review notes.
+"""maya_review: build reviewer reports from interview transcripts and AI-generated review notes.
 
 This is a take-home assignment package. The report builder in
 ``maya_review.report`` is intentionally flawed; see CONTRACT.md at the

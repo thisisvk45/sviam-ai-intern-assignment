@@ -1,7 +1,7 @@
 """Sanity tests for the parts of the project that already work.
 
 These PASS against the starter code and must still pass after your fix.
-They cover the loaders (supporting infrastructure — not part of what you
+They cover the loaders (supporting infrastructure, not part of what you
 need to change) and the CLI plumbing.
 """
 
@@ -121,7 +121,7 @@ def test_note_id_must_be_a_string_when_present(tmp_path):
 
 def test_notes_evidence_is_deliberately_not_validated(tmp_path):
     """Anything inside `evidence` is the report builder's problem, not the
-    loader's — that is the published grading boundary."""
+    loader's. That is the published grading boundary."""
     doc = {
         "notes": [
             {"claim": "no evidence at all"},

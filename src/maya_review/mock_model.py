@@ -5,7 +5,7 @@ gets review notes back. For this assignment the model's response has been
 recorded to a JSON file and is replayed verbatim, so the whole project runs
 offline, deterministically, and without any API key.
 
-The recorded output is intentionally imperfect — hallucinated claims, broken
+The recorded output is intentionally imperfect: hallucinated claims, broken
 citations, misattributed quotes. That is the point of the assignment: the
 report builder must not blindly trust what this "model" produces.
 """

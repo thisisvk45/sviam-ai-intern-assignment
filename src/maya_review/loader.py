@@ -6,8 +6,8 @@ is validated strictly here.
 Review notes are *model output*. The loader enforces only the STRUCTURAL
 guarantees published in CONTRACT.md ("What you may assume"): the document is
 an object with a `notes` list, every note is an object with a string `claim`,
-and `note_id` is a string when present. Everything else — especially the
-`evidence` field — is left untouched and untrusted: deciding how to handle
+and `note_id` is a string when present. Everything else, especially the
+`evidence` field, is left untouched and untrusted: deciding how to handle
 malformed or misleading evidence is the report builder's job.
 """
 

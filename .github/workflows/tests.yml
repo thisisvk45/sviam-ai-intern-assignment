@@ -1,6 +1,6 @@
 # Runs the public test suite.
 #
-# NOTE: this workflow is RED on the starter code — every test in
+# NOTE: this workflow is RED on the starter code. Every test in
 # tests/test_contract.py fails by design. Your submission should turn it green.
 name: tests
 

@@ -1,9 +1,13 @@
 # Your response
 
 Fill this in before submitting. Short, honest answers beat long polished
-ones — a few sentences per section is plenty. If you ran out of time, say
-where you stopped and what you would have done next; thoughtful incomplete
+ones; a few sentences per section is plenty. If you ran out of time, say
+where you stopped and what you would have done next. Thoughtful incomplete
 submissions are welcome.
+
+We read this file closely. The sections about your solution's failures and
+how you would fix them matter as much as the code: they show us how you
+think about a problem, not just whether you closed the tests.
 
 ## What I changed and why
 
@@ -12,14 +16,28 @@ submissions are welcome.
 
 ## How I verified it
 
-<!-- Which tests you ran/added, anything you checked by hand with the CLI. -->
+<!-- Which tests you ran or added, anything you checked by hand with the CLI. -->
 
-## What this implementation still cannot guarantee
+## Where my solution still fails
 
-<!-- Be specific. Example questions to consider: what does reference_status
-     "ok" actually prove? What kinds of bad notes would still look clean? -->
+<!-- Be specific and concrete. List the known failures and weak spots of YOUR
+     implementation: inputs it handles badly, edge cases you skipped, checks
+     that can be fooled, places where the output could still mislead a
+     reviewer. "None" is almost never the true answer. -->
 
-## One improvement I would make for production
+## What needs improvement and how I would fix it
+
+<!-- For each failure or weakness above, and anything else you would change:
+     what is the fix, and roughly how would you implement it? Rough sketches
+     are fine. We are reading this to see your thinking. -->
+
+## What this implementation cannot guarantee by design
+
+<!-- Different from the section above: not bugs, but limits of the approach.
+     Example questions to consider: what does reference_status "ok" actually
+     prove? What kinds of bad notes would still look clean? -->
+
+## One production improvement I would ship first
 
 <!-- Exactly one. What would you build next if this shipped inside Maya's
      real review pipeline, and why that first? -->

@@ -36,7 +36,7 @@ CLAIM_NEEDS_HUMAN_REVIEW = "needs_human_review"
 
 # Rendering label for quotes that could not be verified against the transcript
 # (missing segment, quote mismatch, malformed entry). Such a quote is nobody's
-# words — it must never be rendered as "Candidate said" or "Maya said".
+# words. It must never be rendered as "Candidate said" or "Maya said".
 # See CONTRACT.md R8.
 UNVERIFIED_QUOTE_LABEL = "Unverified model-supplied quote"
 
@@ -101,14 +101,14 @@ def render_report(report: dict) -> str:
     BROKEN: presents every quote as the candidate's words, surfaces the
     model's recommendation, and shows no validation issues.
     """
-    lines = [f"# Interview review — {report['interview_id']}", ""]
+    lines = [f"# Interview review - {report['interview_id']}", ""]
 
     if report.get("recommendation"):
         lines.append(f"**Model recommendation:** {report['recommendation']}")
         lines.append("")
 
     for note in report["notes"]:
-        lines.append(f"## {note['note_id']} — {note['claim']}")
+        lines.append(f"## {note['note_id']} - {note['claim']}")
         lines.append(f"Status: {note['status']}")
         for entry in note["evidence"]:
             lines.append(
