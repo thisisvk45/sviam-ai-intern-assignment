@@ -41,6 +41,22 @@ def lines_with(rendered, text):
     return found
 
 
+def assert_labeled_without_added_attribution(rendered, quote):
+    """The rendered line(s) carrying `quote` must include the unverified
+    label, and the renderer must not add speaker attribution around it.
+
+    Words INSIDE the quoted text are data and are unrestricted (CONTRACT.md
+    R8), so only the part of the line outside the quote is checked."""
+    labeled = [
+        line for line in lines_with(rendered, quote) if UNVERIFIED_QUOTE_LABEL in line
+    ]
+    assert labeled, f"no rendered line with {quote!r} carries the unverified label"
+    for line in labeled:
+        added_by_renderer = line.replace(quote, "")
+        assert "maya" not in added_by_renderer.casefold()
+        assert "candidate" not in added_by_renderer.casefold()
+
+
 # --- R2: cited segments must exist -----------------------------------------
 
 
@@ -185,31 +201,55 @@ def test_authentic_quote_does_not_certify_the_claim(transcript, notes):
 
 def test_unverified_quotes_are_labeled_not_attributed(transcript, notes):
     """Quotes that failed verification are nobody's words (CONTRACT.md R8):
-    their rendered line carries the exact unverified label and no speaker
-    name. Verified quotes carry the actual speaker instead."""
+    their rendered line carries the exact unverified label and no
+    renderer-added speaker attribution. Verified quotes carry the actual
+    speaker instead."""
     rendered = render_report(build_report(transcript, notes))
 
     # n2's fabricated quote (nonexistent segment) and n4's fabricated quote
     # (real segment, mismatched text) must both be labeled, never attributed.
-    # Only the labeled quote line is constrained: issue messages may mention
-    # the cited segment's speaker for context (CONTRACT.md R8).
-    for fragment in (
+    # Only renderer-added text on the labeled quote line is constrained;
+    # issue messages may mention the cited segment's speaker for context.
+    for quote in (
         "We shard by user ID across nodes.",
-        "extensive integration and load tests",
+        "I wrote extensive integration and load tests for every endpoint.",
     ):
-        labeled = [
-            line
-            for line in lines_with(rendered, fragment)
-            if UNVERIFIED_QUOTE_LABEL in line
-        ]
-        assert labeled, f"no rendered line with {fragment!r} carries the label"
-        for line in labeled:
-            assert "maya" not in line.casefold()
-            assert "candidate" not in line.casefold()
+        assert_labeled_without_added_attribution(rendered, quote)
 
     # n4's authentic quote, in the same note, is attributed to the candidate.
     authentic_lines = lines_with(rendered, "a handful of pytest cases")
     assert any("candidate" in line.casefold() for line in authentic_lines)
+
+
+def test_unverified_quote_containing_speaker_words_stays_visible(transcript):
+    """A fabricated quote may itself contain 'Maya said' or 'candidate'.
+
+    Those words are quoted source text: they must remain visible verbatim
+    under the unverified label (CONTRACT.md R1/R8), but the renderer must
+    not add speaker attribution of its own — and the quote's own words never
+    count as attribution."""
+    quote = "Maya said the candidate crushed it."
+    notes = {
+        "interview_id": transcript["interview_id"],
+        "notes": [
+            {
+                "note_id": "nx",
+                "claim": "The candidate summarized feedback they received.",
+                "evidence": [
+                    {
+                        "segment_id": "s2",
+                        "attributed_to": "candidate",
+                        "quote": quote,
+                    }
+                ],
+            }
+        ],
+    }
+    report = build_report(transcript, notes)
+    entry = report["notes"][0]["evidence"][0]
+    assert entry["verified"] is False  # the quote appears nowhere in s2
+    assert QUOTE_MISMATCH in entry["issues"]
+    assert_labeled_without_added_attribution(render_report(report), quote)
 
 
 def test_rendered_report_carries_the_disclaimer(transcript, notes):

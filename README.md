@@ -82,8 +82,10 @@ References: issues_found · Claim: needs_human_review
 ```
 
 A quote that can't be traced to the transcript is nobody's words — it is
-labeled `Unverified model-supplied quote`, never rendered as "Candidate
-said" or "Maya said". A real segment id alone doesn't make a quote real.
+labeled `Unverified model-supplied quote`, and the renderer never frames it
+as "Candidate said" or "Maya said". (Words *inside* the quoted text are
+data and stay visible, even if the quote itself contains "Maya said".) A
+real segment id alone doesn't make a quote real.
 
 (Exact wording and formatting are yours to choose; the required content is in
 CONTRACT.md R7–R8.)

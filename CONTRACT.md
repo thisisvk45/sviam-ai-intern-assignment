@@ -190,10 +190,17 @@ code. Quotes are rendered under these rules:
 
   > Unverified model-supplied quote
 
-  and contains **no speaker name at all** — an unmatched quote is nobody's
-  words, and `Candidate said` / `Maya said` phrasing is forbidden for it.
-  If you want to mention the cited segment's speaker for context, do it in
-  the issue message, never on the quote line.
+  and the renderer must not attribute the quote to any speaker: **outside
+  the quoted text itself, the line contains no speaker name** — no
+  `Candidate said` / `Maya said` framing added by your code. An unmatched
+  quote is nobody's words.
+
+  The words *inside* the quoted source text are data and are unrestricted
+  (R1): a fabricated quote that itself reads "Maya said …" is still
+  displayed verbatim (whitespace-normalized) under the label — visible, but
+  never turned into actual speaker attribution. If you want to mention the
+  cited segment's speaker for context, do it in the issue message, never on
+  the quote line.
 
 The rendered report must also contain this exact line (the `DISCLAIMER`
 constant in `report.py`):
