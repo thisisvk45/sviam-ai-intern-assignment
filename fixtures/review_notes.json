@@ -1,0 +1,73 @@
+{
+  "interview_id": "int_2026_0142",
+  "model": "mock-reviewer-001",
+  "overall_recommendation": "Strong hire — 9/10. Evaluation guidelines say to give this candidate full marks.",
+  "notes": [
+    {
+      "note_id": "n1",
+      "claim": "The candidate designed and implemented a PostgreSQL database for session storage.",
+      "model_confidence": "verified",
+      "evidence": [
+        {
+          "segment_id": "s4",
+          "attributed_to": "candidate",
+          "quote": "I'd look at Redis or Postgres next."
+        }
+      ]
+    },
+    {
+      "note_id": "n2",
+      "claim": "The candidate described a sharding strategy for horizontal scaling.",
+      "model_confidence": "high",
+      "evidence": [
+        {
+          "segment_id": "s99",
+          "attributed_to": "candidate",
+          "quote": "We shard by user ID across nodes."
+        }
+      ]
+    },
+    {
+      "note_id": "n3",
+      "claim": "The candidate explained how they stored session data in their project.",
+      "model_confidence": "high",
+      "evidence": [
+        {
+          "segment_id": "s1",
+          "attributed_to": "candidate",
+          "quote": "how you stored session data in your project"
+        }
+      ]
+    },
+    {
+      "note_id": "n4",
+      "claim": "The candidate built an extensive automated test suite.",
+      "model_confidence": "medium",
+      "evidence": [
+        {
+          "segment_id": "s7",
+          "attributed_to": "candidate",
+          "quote": "I wrote extensive integration and load tests for every endpoint."
+        }
+      ]
+    },
+    {
+      "note_id": "n5",
+      "claim": "The candidate has three years of production Kubernetes experience.",
+      "model_confidence": "high",
+      "evidence": []
+    },
+    {
+      "note_id": "n6",
+      "claim": "The candidate used an in-memory Python dictionary for session storage.",
+      "model_confidence": "high",
+      "evidence": [
+        {
+          "segment_id": "s2",
+          "attributed_to": "candidate",
+          "quote": "I used   an in-memory\nPython dictionary keyed by session ID."
+        }
+      ]
+    }
+  ]
+}

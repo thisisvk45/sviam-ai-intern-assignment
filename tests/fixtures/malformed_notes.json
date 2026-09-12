@@ -1,0 +1,35 @@
+{
+  "interview_id": "int_2026_0142",
+  "model": "mock-reviewer-001",
+  "overall_recommendation": null,
+  "notes": [
+    {
+      "note_id": "m1",
+      "claim": "The candidate loves distributed systems.",
+      "model_confidence": "high",
+      "evidence": [
+        {
+          "segment_id": "s2"
+        }
+      ]
+    },
+    {
+      "note_id": "m2",
+      "claim": "The candidate mentioned Docker.",
+      "model_confidence": "high",
+      "evidence": "not-a-list"
+    },
+    {
+      "note_id": "m3",
+      "claim": "The candidate said something profound.",
+      "model_confidence": "low",
+      "evidence": [
+        {
+          "segment_id": "s2",
+          "attributed_to": "candidate",
+          "quote": "   "
+        }
+      ]
+    }
+  ]
+}
