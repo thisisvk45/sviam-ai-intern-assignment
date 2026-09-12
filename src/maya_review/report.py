@@ -34,6 +34,12 @@ REFERENCE_ISSUES = "issues_found"
 # never certify that a generated claim is TRUE.
 CLAIM_NEEDS_HUMAN_REVIEW = "needs_human_review"
 
+# Rendering label for quotes that could not be verified against the transcript
+# (missing segment, quote mismatch, malformed entry). Such a quote is nobody's
+# words — it must never be rendered as "Candidate said" or "Maya said".
+# See CONTRACT.md R8.
+UNVERIFIED_QUOTE_LABEL = "Unverified model-supplied quote"
+
 # This exact line must appear in every rendered report (see CONTRACT.md R8).
 DISCLAIMER = (
     "Reference checks verify citations, not truth. "

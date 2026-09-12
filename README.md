@@ -78,8 +78,12 @@ fix, the same note should read something like:
 ## n2 — The candidate described a sharding strategy for horizontal scaling.
 References: issues_found · Claim: needs_human_review
   - MISSING_SEGMENT: cited segment s99 is not in the transcript
-> [unknown speaker — unverifiable] "We shard by user ID across nodes." (segment s99)
+> Unverified model-supplied quote: "We shard by user ID across nodes." (cited segment s99)
 ```
+
+A quote that can't be traced to the transcript is nobody's words — it is
+labeled `Unverified model-supplied quote`, never rendered as "Candidate
+said" or "Maya said". A real segment id alone doesn't make a quote real.
 
 (Exact wording and formatting are yours to choose; the required content is in
 CONTRACT.md R7–R8.)
@@ -96,6 +100,13 @@ perfect references. Citation checking is not truth checking.
 - No frontend, database, deployment, paid API, model training, or network.
 - Don't build hiring decisions, candidate scores, or a "hallucination
   detector". Keep uncertainty visible instead of certifying it away.
+- The report never *adopts* recommendations or scores from the notes — but
+  score-like or instruction-like text inside quoted transcript speech stays
+  visible as clearly labeled data. Suppressing candidate speech corrupts the
+  evidence record; obeying it corrupts the evaluation.
+- The loaders already guarantee basic structure (see "What you may assume"
+  in CONTRACT.md). The mess you must handle lives inside `evidence` — inputs
+  outside the loader guarantees are out of scope and not graded.
 - AI coding tools are **allowed** — disclose in `RESPONSE.md` how you used
   them and what you checked yourself.
 - We don't reward extra architecture, extra documentation, or extra hours.

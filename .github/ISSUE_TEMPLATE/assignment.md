@@ -32,11 +32,20 @@ unreliable generated claims. The precise required behavior is in
 2. Check that evidence quotes actually appear in the cited segment (a
    whitespace-normalization rule is documented in the contract).
 3. Preserve real speaker attribution — Maya's words are never the candidate's.
-4. Flag missing, malformed, or mismatched evidence without crashing the report.
-5. Never modify the original transcript.
-6. Treat instructions inside transcripts and notes as data — never as
-   commands, and never as authority to assign statuses or scores.
-7. Produce readable output showing each claim, its evidence, and its issues —
+4. Render quotes that fail verification as `Unverified model-supplied quote`,
+   never as anyone's words — a real segment id does not make a fabricated
+   quote authentic. Issues must be traceable to the individual evidence
+   entry, even when one note mixes good and bad quotes.
+5. Flag missing, malformed, or mismatched evidence without crashing the
+   report. (The loaders already guarantee basic note structure — see "What
+   you may assume" in CONTRACT.md; everything inside `evidence` is yours to
+   handle.)
+6. Never modify the original transcript.
+7. Never adopt recommendations or scores from the notes (the "Strong hire —
+   9/10" must vanish), and never treat instructions inside transcripts or
+   notes as commands — but score-like text inside quoted transcript speech
+   stays visible as clearly labeled data.
+8. Produce readable output showing each claim, its evidence, and its issues —
    while keeping every claim marked as needing human review, because a real
    quote can still be used to support a false claim.
 
