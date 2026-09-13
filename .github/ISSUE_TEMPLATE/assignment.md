@@ -71,5 +71,9 @@ unreliable generated claims. The precise required behavior is in
    where your solution still fails, what needs improvement, and how you
    would fix it. That analysis shows us your thinking and counts as much as
    the code.
-3. Push to a **private** GitHub repo and invite the SViam contact who sent
-   you this assignment (or reply with a zip if you prefer).
+3. Use this repository's **Use this template** button to create a **private**
+   working copy. Push your solution there and invite the SViam contact who sent
+   you this assignment (or reply with a zip if you prefer). Keep your solution
+   and write-up out of public issues and pull requests.
+
+Formal hiring submissions are by invitation after the Maya interview review.

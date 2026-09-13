@@ -31,6 +31,14 @@ The full brief also lives in
 
 ## Setup
 
+This is the public starter assignment. Formal hiring submissions are by
+invitation after the Maya interview review.
+
+Choose **Use this template → Create a new repository**, then select **Private**
+for your working copy. Keep your solution and RESPONSE.md in that private repo
+and invite the SViam reviewer named in your assignment invitation. Submit through
+that invitation, rather than a public issue or pull request here.
+
 Python 3.10+. No API keys, no network. The "model" is a recorded response
 (`fixtures/review_notes.json`, replayed by `maya_review.mock_model`).
 
